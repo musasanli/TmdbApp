@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import './SearchMovie.scss';
 
-export const SearchMovie = () => {
+export const SearchMovie = ({ searchFilms, getRandomMovie }) => {
   const [query, setQuery] = useState('');
 
+  useEffect(() => {
+    getRandomMovie();
+  }, [getRandomMovie]);
+
   function handleClick() {
-    console.log(query);
+    searchFilms(query);
   }
 
   function handleChange(e) {
@@ -27,4 +32,9 @@ export const SearchMovie = () => {
       </div>
     </div>
   );
+};
+
+SearchMovie.propTypes = {
+  searchFilms: PropTypes.func.isRequired,
+  getRandomMovie: PropTypes.func.isRequired,
 };

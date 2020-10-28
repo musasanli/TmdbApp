@@ -1,8 +1,18 @@
 import { connect } from 'react-redux';
 
+import {
+  getSearchedMovies,
+  getSearchIsLoading,
+  getIsSuccessfullyFetched,
+} from '../../containers/MainPage/selector';
+
 import { MainPage } from './MainPage';
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state) => ({
+  searchedMovies: getSearchedMovies(state),
+  isSearchLoading: getSearchIsLoading(state),
+  isSearchSuccessfullyFetched: getIsSuccessfullyFetched(state),
+});
 
 const mapDispatchToProps = () => ({});
 
