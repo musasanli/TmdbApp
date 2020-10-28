@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import { MovieItem } from './MovieItem';
-
 import { findRelatedGenres } from '../../../containers/MainPage/selector';
+
+import { MovieItemFull } from './MovieItemFull';
 
 const mapStateToProps = (state) => ({
   genres: (genres) => findRelatedGenres(state, genres),
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = () => ({});
 
-export const MovieItemView = connect(
+export const MovieItemFullView = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(MovieItem);
+)(MovieItemFull);

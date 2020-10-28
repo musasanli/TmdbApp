@@ -1,34 +1,34 @@
-import { fetchPopularFilms } from './calls';
+import { fetchPopularMovies } from './calls';
 import { actionTypes } from './types';
 
-export const fetchPopularFilmsCall = () => (dispatch) => {
-  dispatch(popularFilmsInitial());
+export const fetchPopularMoviesCall = () => (dispatch) => {
+  dispatch(popularMoviesInitial());
 
-  fetchPopularFilms()
-    .then((res) => dispatch(popularFilms(res)))
-    .catch((error) => dispatch(popularFilmsFail(error)));
+  fetchPopularMovies()
+    .then((res) => dispatch(popularMovies(res)))
+    .catch((error) => dispatch(popularMoviesFail(error)));
 };
 
-export const popularFilmsInitial = () => {
+export const popularMoviesInitial = () => {
   return {
-    type: actionTypes.FETCH_POPULAR_FILMS_INITIAL,
+    type: actionTypes.FETCH_POPULAR_MOVIES_INITIAL,
     isLoading: true,
     isSuccessfullyFetched: false,
   };
 };
 
-export const popularFilms = (data) => {
+export const popularMovies = (data) => {
   return {
-    type: actionTypes.FETCH_POPULAR_FILMS_SUCCESFUL,
+    type: actionTypes.FETCH_POPULAR_MOVIES_SUCCESFUL,
     payload: data,
     isLoading: false,
     isSuccessfullyFetched: true,
   };
 };
 
-export const popularFilmsFail = () => {
+export const popularMoviesFail = () => {
   return {
-    type: actionTypes.FETCH_POPULAR_FILMS_FAIL,
+    type: actionTypes.FETCH_POPULAR_MOVIES_FAIL,
     isSuccessfullyFetched: false,
   };
 };

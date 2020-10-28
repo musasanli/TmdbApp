@@ -2,39 +2,46 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
+  truncateDesription,
   truncateTitle,
   popularityColor,
   displayGenres,
-} from '../../Movies/utils';
+} from '../utils';
+import { MAX_TITLE } from '../consts';
 import { IMAGE_URL } from '../../../utils/consts';
-import { MAX_POPULAR_TITLE } from '../consts';
 
 import logo from '../../../assests/logo.svg';
-import './PopularMoviesItem.scss';
+import './MovieItemFull.scss';
 
-export const PopularMoviesItem = ({ data, genres }) => {
+export const MovieItemFull = ({ data, genres }) => {
   const popularityClass = `PopularityCircle__${popularityColor(
     data.vote_average,
   )}`;
 
   const poster = data.poster_path ? `${IMAGE_URL}${data.poster_path}` : logo;
-  const title = truncateTitle(data.original_title, MAX_POPULAR_TITLE);
+  const backgroundImage = data.backdrop_path
+    ? `${IMAGE_URL}${data.backdrop_path}`
+    : logo;
+
   const relatedGenres = displayGenres(genres(data.genre_ids));
 
   return (
     <div className="MovieItemContainer">
-      <div className="MovieCardPopular" id="bright">
-        <div className="InfoSectionPopular">
-          <div className="MovieHeaderPopular">
-            <img className="MoviePosterPopular" src={poster} />
-          </div>
-          <div className="MovieInfoPopular">
-            <h2>{title}</h2>
+      <div className="MovieCard" id="bright">
+        <div className="InfoSection">
+          <div className="MovieHeader">
+            <img className="MoviePoster" src={poster} />
+            <h1>{truncateTitle(data.original_title)}</h1>
             <h4>{data.release_date}</h4>
             <h4>{relatedGenres}</h4>
           </div>
+          <div className="MovieDesc">
+            <p className="text">
+              {truncateDesription(data.overview, MAX_TITLE)}
+            </p>
+          </div>
           <div className={popularityClass}>{data.vote_average}</div>
-          <div className="MovieSocialPopular">
+          <div className="MovieSocial">
             <ul>
               <li>
                 <i className="material-icons">share</i>
@@ -48,12 +55,13 @@ export const PopularMoviesItem = ({ data, genres }) => {
             </ul>
           </div>
         </div>
+        <img className="MovieBlurBack" src={backgroundImage} />
       </div>
     </div>
   );
 };
 
-PopularMoviesItem.propTypes = {
+MovieItemFull.propTypes = {
   data: PropTypes.object,
   genres: PropTypes.object,
 };
