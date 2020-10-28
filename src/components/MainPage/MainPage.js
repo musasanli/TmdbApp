@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { PopularMoviesView } from '../PopularMovies';
@@ -12,9 +12,14 @@ export const MainPage = ({
   searchedMovies,
   isSearchLoading,
   isSearchSuccessfullyFetched,
+  getGenres,
 }) => {
   const isWithoutError = !isSearchLoading && isSearchSuccessfullyFetched;
   const shouldDisplayResult = isWithoutError && searchedMovies;
+
+  useEffect(() => {
+    getGenres();
+  }, [getGenres]);
 
   const fullReview = () => {
     return <MoviesFullView movies={searchedMovies} />;
@@ -42,4 +47,6 @@ MainPage.propTypes = {
   searchedMovies: PropTypes.array,
   isSearchLoading: PropTypes.bool,
   isSearchSuccessfullyFetched: PropTypes.bool,
+  getGenres: PropTypes.func,
+  genres: PropTypes.object,
 };

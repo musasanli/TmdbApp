@@ -66,7 +66,7 @@ body {
   padding: 10px;
 }
 
-.movie_card {
+.MovieCard {
   position: relative;
   display: block;
   width: 520px;
@@ -81,14 +81,14 @@ body {
     box-shadow: 0px 0px 80px -25px rgba(0, 0, 0, 0.5);
     transition: all 0.4s;
   }
-  .info_section {
+  .InfoSection {
     position: relative;
     width: 100%;
     height: 100%;
     background-blend-mode: multiply;
     z-index: 2;
     border-radius: 10px;
-    .movie_header {
+    .MovieHeader {
       position: relative;
       padding: 25px;
       height: 40%;
@@ -113,7 +113,7 @@ body {
         color: #959595;
         margin-left: 10px;
       }
-      .locandina {
+      .MoviePoster {
         position: relative;
         float: left;
         margin-right: 20px;
@@ -121,7 +121,7 @@ body {
         box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
       }
     }
-    .movie_desc {
+    .MovieDesc {
       padding: 25px;
       height: 50%;
       .text {
@@ -129,7 +129,7 @@ body {
         color: #545454;
       }
     }
-    .movie_social {
+    .MovieSocial {
       height: 10%;
       padding-left: 15px;
       padding-bottom: 20px;
@@ -154,7 +154,7 @@ body {
       }
     }
   }
-  .blur_back {
+  .MovieBlurBack {
     position: absolute;
     top: 0;
     z-index: 1;
@@ -165,47 +165,47 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .movie_header {
+  .MovieHeader {
     width: 65%;
   }
 
-  .movie_desc {
+  .MovieDesc {
     width: 50%;
   }
 
-  .info_section {
+  .InfoSection {
     background: linear-gradient(to right, #e5e6e6 50%, transparent 100%);
   }
 
-  .blur_back {
+  .MovieBlurBack {
     width: 80%;
     background-position: -100% 10% !important;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .movie_card {
+  .MovieCard {
     width: 95%;
     margin: 70px auto;
     min-height: 350px;
     height: auto;
   }
 
-  .blur_back {
+  .MovieBlurBack {
     width: 100%;
     background-position: 50% 50% !important;
   }
 
-  .movie_header {
+  .MovieHeader {
     width: 100%;
     margin-top: 85px;
   }
 
-  .movie_desc {
+  .MovieDesc {
     width: 100%;
   }
 
-  .info_section {
+  .InfoSection {
     background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
     display: inline-grid;
   }

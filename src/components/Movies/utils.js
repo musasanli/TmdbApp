@@ -1,4 +1,4 @@
-import { MAX_DESC, MAX_TITLE } from './consts';
+import { MAX_DESC } from './consts';
 
 export const truncateDesription = (description) => {
   if (description.length > MAX_DESC) {
@@ -7,9 +7,9 @@ export const truncateDesription = (description) => {
   return description;
 };
 
-export const truncateTitle = (title) => {
-  if (title.length > MAX_TITLE) {
-    return `${title.substring(0, MAX_TITLE)}...`;
+export const truncateTitle = (title, maxLength) => {
+  if (title.length > maxLength) {
+    return `${title.substring(0, maxLength)}...`;
   }
   return title;
 };
@@ -23,4 +23,8 @@ export const popularityColor = (data) => {
   } else {
     return 'high';
   }
+};
+
+export const displayGenres = (arr) => {
+  return arr.slice(0, arr.length).join(',  ');
 };

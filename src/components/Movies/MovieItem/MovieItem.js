@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { IMAGE_URL } from '../../utils/consts';
-import { truncateDesription, truncateTitle, popularityColor } from './utils';
-import './MovieItem.scss';
-import logo from '../../assests/logo.svg';
+import {
+  truncateDesription,
+  truncateTitle,
+  popularityColor,
+  displayGenres,
+} from '../utils';
+import { MAX_TITLE } from '../consts';
+import { IMAGE_URL } from '../../../utils/consts';
 
-export const MovieItem = ({ data }) => {
+import logo from '../../../assests/logo.svg';
+import './MovieItem.scss';
+
+export const MovieItem = ({ data, genres }) => {
   const popularityClass = `PopularityCircle__${popularityColor(
     data.vote_average,
   )}`;
@@ -16,20 +23,25 @@ export const MovieItem = ({ data }) => {
     ? `${IMAGE_URL}${data.backdrop_path}`
     : logo;
 
+  const relatedGenres = displayGenres(genres(data.genre_ids));
+
   return (
     <div className="MovieItemContainer">
-      <div className="movie_card" id="bright">
-        <div className="info_section">
-          <div className="movie_header">
-            <img className="locandina" src={poster} />
+      <div className="MovieCard" id="bright">
+        <div className="InfoSection">
+          <div className="MovieHeader">
+            <img className="MoviePoster" src={poster} />
             <h1>{truncateTitle(data.original_title)}</h1>
             <h4>{data.release_date}</h4>
+            <h4>{relatedGenres}</h4>
           </div>
-          <div className="movie_desc">
-            <p className="text">{truncateDesription(data.overview)}</p>
+          <div className="MovieDesc">
+            <p className="text">
+              {truncateDesription(data.overview, MAX_TITLE)}
+            </p>
           </div>
           <div className={popularityClass}>{data.vote_average}</div>
-          <div className="movie_social">
+          <div className="MovieSocial">
             <ul>
               <li>
                 <i className="material-icons">share</i>
@@ -43,7 +55,7 @@ export const MovieItem = ({ data }) => {
             </ul>
           </div>
         </div>
-        <img className="blur_back" src={backgroundImage} />
+        <img className="MovieBlurBack" src={backgroundImage} />
       </div>
     </div>
   );
@@ -51,4 +63,5 @@ export const MovieItem = ({ data }) => {
 
 MovieItem.propTypes = {
   data: PropTypes.object,
+  genres: PropTypes.object,
 };
