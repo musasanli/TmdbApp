@@ -1,5 +1,10 @@
-.PopularMovies {
-  background-color: green;
+.PopularMoviesContainer {
   margin-top: 50px;
-  height: 200px;
+  color: #3e8e87;
+}
+
+.PopularMovies {
+  display: flex;
+  overflow: auto;
+  height: 100%;
 }

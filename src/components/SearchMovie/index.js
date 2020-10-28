@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 
 import { getRandomPoster } from '../../containers/SearchMovies/selector';
-import { SearchMovie } from './SearchMovie';
 import {
   fetchQueriedFilmsCall,
   fetchRandomMovieCall,
 } from '../../containers/SearchMovies/action';
+
+import { SearchMovie } from './SearchMovie';
 
 const mapStateToProps = (state) => ({
   randomMovie: getRandomPoster(state),
