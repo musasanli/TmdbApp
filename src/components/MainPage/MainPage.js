@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { PopularMoviesView } from '../PopularMovies';
-import { FutureMoviesView } from '../FutureMovies';
+import { UpcomingMoviesView } from '../UpcomingMovies';
 import { SearcMovieView } from '../SearchMovie';
 import { MoviesFullView } from '../Movies/MoviesFullView';
 
@@ -29,7 +29,7 @@ export const MainPage = ({
     return (
       <div>
         <PopularMoviesView />
-        <FutureMoviesView />
+        <UpcomingMoviesView />
       </div>
     );
   };

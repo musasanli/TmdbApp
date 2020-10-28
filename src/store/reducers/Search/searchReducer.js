@@ -8,13 +8,13 @@ const initialState = {
 
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.FETCH_QUERIED_FILMS_INITIAL:
+    case actionTypes.FETCH_QUERIED_MOVIES_INITIAL:
       return {
         ...state,
         isLoading: action.isLoading,
       };
 
-    case actionTypes.FETCH_QUERIED_FILMS_SUCCESFUL:
+    case actionTypes.FETCH_QUERIED_MOVIES_SUCCESFUL:
       return {
         ...state,
         data: action.payload,
@@ -28,7 +28,7 @@ const searchReducer = (state = initialState, action) => {
         randomMovie: action.payload,
       };
 
-    case actionTypes.FETCH_QUERIED_FILMS_FAIL:
+    case actionTypes.FETCH_QUERIED_MOVIES_FAIL:
       return {
         ...state,
         isSuccessfullyFetched: action.isSuccessfullyFetched,

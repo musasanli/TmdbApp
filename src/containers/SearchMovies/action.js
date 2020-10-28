@@ -20,7 +20,7 @@ export const fetchRandomMovieCall = () => (dispatch) => {
 
 export const queriedFilmsInitial = () => {
   return {
-    type: actionTypes.FETCH_QUERIED_FILMS_INITIAL,
+    type: actionTypes.FETCH_QUERIED_MOVIES_INITIAL,
     isLoading: true,
     isSuccessfullyFetched: false,
   };
@@ -28,7 +28,7 @@ export const queriedFilmsInitial = () => {
 
 export const queriedFilms = (data) => {
   return {
-    type: actionTypes.FETCH_QUERIED_FILMS_SUCCESFUL,
+    type: actionTypes.FETCH_QUERIED_MOVIES_SUCCESFUL,
     payload: data,
     isLoading: false,
     isSuccessfullyFetched: true,
@@ -37,7 +37,7 @@ export const queriedFilms = (data) => {
 
 export const queriedFilmsFail = () => {
   return {
-    type: actionTypes.FETCH_QUERIED_FILMS_FAIL,
+    type: actionTypes.FETCH_QUERIED_MOVIES_FAIL,
     isSuccessfullyFetched: false,
   };
 };

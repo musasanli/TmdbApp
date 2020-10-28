@@ -1,16 +1,20 @@
 import { connect } from 'react-redux';
 
-import { PopularMovies } from './PopularMovies';
+import { fetchPopularMoviesCall } from '../../containers/PopularMovies/action';
+import {
+  getPopularMovies,
+  getIsPopularMoviesLoading,
+} from '../../containers/PopularMovies/selector';
 
-import { fetchPopularFilmsCall } from '../../containers/PopularMovies/action';
-import { getPopularMovies } from '../../containers/PopularMovies/selector';
+import { PopularMovies } from './PopularMovies';
 
 const mapStateToProps = (state) => ({
   popularMovies: getPopularMovies(state),
+  isPopularMoviesLoading: getIsPopularMoviesLoading(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getPopularMovies: () => dispatch(fetchPopularFilmsCall()),
+  getPopularMovies: () => dispatch(fetchPopularMoviesCall()),
 });
 
 export const PopularMoviesView = connect(

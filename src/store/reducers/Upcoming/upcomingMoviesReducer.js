@@ -1,19 +1,19 @@
-import { actionTypes } from '../../../containers/PopularMovies/types';
+import { actionTypes } from '../../../containers/UpcomingMovies/types';
 
 const initialState = {
   isLoading: false,
   isSuccessfullyFetched: false,
 };
 
-const popularMoviesReducers = (state = initialState, action) => {
+const upcomingMoviesReducers = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.FETCH_POPULAR_MOVIES_INITIAL:
+    case actionTypes.FETCH_UPCOMING_MOVIES_INITIAL:
       return {
         ...state,
         isLoading: action.isLoading,
       };
 
-    case actionTypes.FETCH_POPULAR_MOVIES_SUCCESFUL:
+    case actionTypes.FETCH_UPCOMING_MOVIES_SUCCESFUL:
       return {
         ...state,
         data: action.payload,
@@ -21,7 +21,7 @@ const popularMoviesReducers = (state = initialState, action) => {
         isSuccessfullyFetched: action.isSuccessfullyFetched,
       };
 
-    case actionTypes.FETCH_POPULAR_MOVIES_FAIL:
+    case actionTypes.FETCH_UPCOMING_MOVIES_FAIL:
       return {
         ...state,
         isSuccessfullyFetched: action.isSuccessfullyFetched,
@@ -32,4 +32,4 @@ const popularMoviesReducers = (state = initialState, action) => {
   }
 };
 
-export default popularMoviesReducers;
+export default upcomingMoviesReducers;
