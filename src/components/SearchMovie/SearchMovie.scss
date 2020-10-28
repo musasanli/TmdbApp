@@ -1,18 +1,19 @@
 .SearchMovieContainer {
-  background-color: blue;
-  height: 300px;
+  border: 2px solid white;
+  height: 140px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  background-image: linear-gradient(to right, #043957, #4ea795, #563e6d);
 }
 
 .SearchMovie {
   display: flex;
   background-color: white;
-  margin-bottom: 50px;
+  margin: 50px 90px;
   width: 100%;
-  margin-left: 90px;
-  margin-right: 90px;
   border-radius: 50px;
   border: none;
   height: 40px;
@@ -27,17 +28,31 @@
   font-size: 20px;
 }
 
+@media only screen and (max-width: 400px) {
+  .TypeMovie {
+    flex: 9;
+    padding-left: 20px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    width: 160px;
+  }
+}
+
 .Submit {
   flex: 1;
   height: 40px;
   border-radius: 50px;
-  border-left: 5px solid green;
+  border-left: 5px solid #0281a9;
   border-bottom: none;
   border-top: none;
   border-right: none;
   cursor: pointer;
   transition: all 0.5s;
   outline: none;
+  color: #0281a9;
+  font-size: 20px;
 }
 
 .Submit span {
@@ -49,6 +64,7 @@
 
 .Submit span:after {
   content: '\00bb';
+  color: #0281a9;
   position: absolute;
   opacity: 0;
   top: 0;
