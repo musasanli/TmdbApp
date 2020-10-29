@@ -5,6 +5,7 @@ import {
   fetchQueriedFilmsCall,
   fetchRandomMovieCall,
 } from '../../containers/SearchMovies/action';
+import { showHome } from '../../containers//MainPage/action';
 
 import { SearchMovie } from './SearchMovie';
 
@@ -15,6 +16,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   searchFilms: (query) => dispatch(fetchQueriedFilmsCall(query)),
   getRandomMovie: () => dispatch(fetchRandomMovieCall()),
+  goHomePage: () => dispatch(showHome()),
 });
 
 export const SearcMovieView = connect(

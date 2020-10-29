@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './SearchMovie.scss';
 
-export const SearchMovie = ({ searchFilms, getRandomMovie }) => {
+export const SearchMovie = ({ searchFilms, getRandomMovie, goHomePage }) => {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
@@ -12,6 +12,7 @@ export const SearchMovie = ({ searchFilms, getRandomMovie }) => {
 
   const handleClick = () => {
     searchFilms(query);
+    goHomePage();
   };
 
   const handleChange = (e) => {
@@ -37,4 +38,5 @@ export const SearchMovie = ({ searchFilms, getRandomMovie }) => {
 SearchMovie.propTypes = {
   searchFilms: PropTypes.func.isRequired,
   getRandomMovie: PropTypes.func.isRequired,
+  goHomePage: PropTypes.func,
 };
