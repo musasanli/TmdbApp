@@ -2,6 +2,8 @@ import {
   fetchGenresCall,
   fetchSelectedMovieCall,
   fetchSelectedMovieTrailerCall,
+  fetchFavoriteMoviesCall,
+  fetchWatchlistMoviesCall,
 } from './calls';
 
 import { actionTypes } from './types';
@@ -21,6 +23,18 @@ export const fetchSelectedMovie = (id) => (dispatch) => {
     dispatch(fetchSelectedMovieTrailer(id));
     dispatch(fetchedSelectedMovie(res));
   });
+};
+
+export const fetchFavoriteMovies = () => (dispatch) => {
+  fetchFavoriteMoviesCall().then((res) =>
+    dispatch(fetchedFavoritesMovies(res)),
+  );
+};
+
+export const fetchWatchlistMovies = () => (dispatch) => {
+  fetchWatchlistMoviesCall().then((res) =>
+    dispatch(fetchedWatchlistMovies(res)),
+  );
 };
 
 export const fetchedGenres = (data) => {
@@ -48,5 +62,46 @@ export const fetchedSelectedMovieTrailer = (data) => {
 export const closeSelectedMovie = () => {
   return {
     type: actionTypes.CLOSE_SELECTED_MOVIE,
+  };
+};
+
+export const fetchedFavoritesMovies = (data) => {
+  return {
+    type: actionTypes.FETCH_FAVORITE_MOVIES,
+    data: data,
+  };
+};
+
+export const fetchedWatchlistMovies = (data) => {
+  return {
+    type: actionTypes.FETCH_WATCHLIST_MOVIES,
+    data: data,
+  };
+};
+
+export const showHome = () => {
+  return {
+    type: actionTypes.SET_MENU_VISIBILITY,
+    showHome: true,
+    showFavorites: false,
+    showWatchlist: false,
+  };
+};
+
+export const showFavorites = () => {
+  return {
+    type: actionTypes.SET_MENU_VISIBILITY,
+    showHome: false,
+    showFavorites: true,
+    showWatchlist: false,
+  };
+};
+
+export const showWatchlist = () => {
+  return {
+    type: actionTypes.SET_MENU_VISIBILITY,
+    showHome: false,
+    showFavorites: false,
+    showWatchlist: true,
   };
 };

@@ -6,6 +6,7 @@ import { UpcomingMoviesView } from '../UpcomingMovies';
 import { SearcMovieView } from '../SearchMovie';
 import { MoviesFullView } from '../Movies/MoviesFullView';
 import { SingleMovieItemView } from '../Movies/SingleMovieItem';
+import { SideMenuView } from '../SideMenu';
 
 import './MainPage.scss';
 
@@ -15,17 +16,33 @@ export const MainPage = ({
   isSearchSuccessfullyFetched,
   getGenres,
   showSelectedMovie,
+  showFavorites,
+  showWatchlist,
+  favoriteMovies,
+  watchlistMovies,
+  getFavoriteMovies,
+  getWatchlistMovies,
 }) => {
   const isWithoutError = !isSearchLoading && isSearchSuccessfullyFetched;
   const shouldDisplayResult = isWithoutError && searchedMovies;
 
   useEffect(() => {
     getGenres();
-  }, [getGenres]);
+    favoriteMovies();
+    watchlistMovies();
+  }, [getGenres, favoriteMovies, watchlistMovies]);
 
   const display = () => {
     if (showSelectedMovie) {
       return <SingleMovieItemView />;
+    }
+
+    if (showFavorites) {
+      return <MoviesFullView movies={getFavoriteMovies} />;
+    }
+
+    if (showWatchlist) {
+      return <MoviesFullView movies={getWatchlistMovies} />;
     }
 
     return shouldDisplayResult ? fullReview() : mainPageFeatures();
@@ -45,6 +62,7 @@ export const MainPage = ({
 
   return (
     <div className="MainPage">
+      <SideMenuView />
       <SearcMovieView />
       {isSearchLoading && <p>Spinner</p>}
       {display()}
@@ -58,4 +76,10 @@ MainPage.propTypes = {
   isSearchSuccessfullyFetched: PropTypes.bool,
   getGenres: PropTypes.func,
   showSelectedMovie: PropTypes.bool,
+  showFavorites: PropTypes.bool,
+  showWatchlist: PropTypes.bool,
+  favoriteMovies: PropTypes.func,
+  watchlistMovies: PropTypes.func,
+  getFavoriteMovies: PropTypes.array,
+  getWatchlistMovies: PropTypes.array,
 };

@@ -9,6 +9,16 @@ export const getSelectedMovie = (state) => state.main?.selectedMovieData;
 
 export const getShowSelectedMovie = (state) => state.main?.showSelectedMovie;
 
+export const shouldDisplayHome = (state) => state.main?.showHome;
+
+export const shouldDisplayFavorites = (state) => state.main?.showFavorites;
+
+export const shouldDisplayWatchlist = (state) => state.main?.showWatchlist;
+
+export const getFavoritesMovies = (state) => state.main?.favData?.results;
+
+export const getWatchlistMovies = (state) => state.main?.watchData?.results;
+
 export const getShowSelectedMovieTrailer = (state) =>
   state.main?.selectedMovieDataTrailer?.results[0]?.key;
 
