@@ -5,6 +5,7 @@ import { PopularMoviesView } from '../PopularMovies';
 import { UpcomingMoviesView } from '../UpcomingMovies';
 import { SearcMovieView } from '../SearchMovie';
 import { MoviesFullView } from '../Movies/MoviesFullView';
+import { SingleMovieItemView } from '../Movies/SingleMovieItem';
 
 import './MainPage.scss';
 
@@ -13,6 +14,7 @@ export const MainPage = ({
   isSearchLoading,
   isSearchSuccessfullyFetched,
   getGenres,
+  showSelectedMovie,
 }) => {
   const isWithoutError = !isSearchLoading && isSearchSuccessfullyFetched;
   const shouldDisplayResult = isWithoutError && searchedMovies;
@@ -21,6 +23,13 @@ export const MainPage = ({
     getGenres();
   }, [getGenres]);
 
+  const display = () => {
+    if (showSelectedMovie) {
+      return <SingleMovieItemView />;
+    }
+
+    return shouldDisplayResult ? fullReview() : mainPageFeatures();
+  };
   const fullReview = () => {
     return <MoviesFullView movies={searchedMovies} />;
   };
@@ -38,7 +47,7 @@ export const MainPage = ({
     <div className="MainPage">
       <SearcMovieView />
       {isSearchLoading && <p>Spinner</p>}
-      {shouldDisplayResult ? fullReview() : mainPageFeatures()}
+      {display()}
     </div>
   );
 };
@@ -48,5 +57,5 @@ MainPage.propTypes = {
   isSearchLoading: PropTypes.bool,
   isSearchSuccessfullyFetched: PropTypes.bool,
   getGenres: PropTypes.func,
-  genres: PropTypes.object,
+  showSelectedMovie: PropTypes.bool,
 };

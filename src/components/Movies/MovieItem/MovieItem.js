@@ -8,17 +8,20 @@ import { MAX_POPULAR_TITLE } from '../consts';
 import logo from '../../../assests/logo.svg';
 import './MovieItem.scss';
 
-export const MovieItem = ({ data, genres }) => {
+export const MovieItem = ({ data, genres, selectMovie }) => {
   const popularityClass = `PopularityCircle__${popularityColor(
     data.vote_average,
   )}`;
-
   const poster = data.poster_path ? `${IMAGE_URL}${data.poster_path}` : logo;
   const title = truncateTitle(data.original_title, MAX_POPULAR_TITLE);
   const relatedGenres = displayGenres(genres(data.genre_ids));
 
+  const DetailedMovie = () => {
+    selectMovie(data.id);
+  };
+
   return (
-    <div className="MovieItemContainer">
+    <div className="MovieItemContainer" onClick={DetailedMovie}>
       <div className="MovieCardPopular" id="bright">
         <div className="InfoSectionPopular">
           <div className="MovieHeaderPopular">
@@ -51,5 +54,6 @@ export const MovieItem = ({ data, genres }) => {
 
 MovieItem.propTypes = {
   data: PropTypes.object,
-  genres: PropTypes.object,
+  genres: PropTypes.func,
+  selectMovie: PropTypes.func,
 };
