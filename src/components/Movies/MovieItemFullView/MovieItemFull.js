@@ -13,7 +13,7 @@ import { IMAGE_URL } from '../../../utils/consts';
 import logo from '../../../assests/logo.svg';
 import './MovieItemFull.scss';
 
-export const MovieItemFull = ({ data, genres }) => {
+export const MovieItemFull = ({ data, genres, selectMovie }) => {
   const popularityClass = `PopularityCircle__${popularityColor(
     data.vote_average,
   )}`;
@@ -25,9 +25,13 @@ export const MovieItemFull = ({ data, genres }) => {
 
   const relatedGenres = displayGenres(genres(data.genre_ids));
 
+  const DetailedMovie = () => {
+    selectMovie(data.id);
+  };
+
   return (
-    <div className="MovieItemContainer">
-      <div className="MovieCard" id="bright">
+    <div className="MovieItemContainer" onClick={DetailedMovie}>
+      <div className="MovieCard">
         <div className="InfoSection">
           <div className="MovieHeader">
             <img className="MoviePoster" src={poster} />
@@ -63,5 +67,6 @@ export const MovieItemFull = ({ data, genres }) => {
 
 MovieItemFull.propTypes = {
   data: PropTypes.object,
-  genres: PropTypes.object,
+  genres: PropTypes.func,
+  selectMovie: PropTypes.func,
 };

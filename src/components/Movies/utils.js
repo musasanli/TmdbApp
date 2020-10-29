@@ -1,4 +1,4 @@
-import { MAX_DESC } from './consts';
+import { MAX_DESC, YOUTUBE_URL } from './consts';
 
 export const truncateDesription = (description) => {
   if (description.length > MAX_DESC) {
@@ -28,3 +28,5 @@ export const popularityColor = (data) => {
 export const displayGenres = (arr) => {
   return arr.slice(0, arr.length).join(',  ');
 };
+
+export const refactorTrailerUrl = (key) => `${YOUTUBE_URL}${key}`;

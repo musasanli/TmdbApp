@@ -10,13 +10,13 @@ export const SearchMovie = ({ searchFilms, getRandomMovie }) => {
     getRandomMovie();
   }, [getRandomMovie]);
 
-  function handleClick() {
+  const handleClick = () => {
     searchFilms(query);
-  }
+  };
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     setQuery(e.target.value);
-  }
+  };
 
   return (
     <div className="SearchMovieContainer">

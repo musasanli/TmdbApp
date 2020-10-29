@@ -5,6 +5,7 @@ import {
   getSearchIsLoading,
   getIsSuccessfullyFetched,
   findRelatedGenres,
+  getShowSelectedMovie,
 } from '../../containers/MainPage/selector';
 
 import { fetchGenres } from '../../containers/MainPage/action';
@@ -16,6 +17,7 @@ const mapStateToProps = (state) => ({
   isSearchLoading: getSearchIsLoading(state),
   isSearchSuccessfullyFetched: getIsSuccessfullyFetched(state),
   genres: (genres) => findRelatedGenres(state, genres),
+  showSelectedMovie: getShowSelectedMovie(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
