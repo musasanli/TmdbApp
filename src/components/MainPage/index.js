@@ -10,6 +10,8 @@ import {
   shouldDisplayWatchlist,
   getFavoritesMovies,
   getWatchlistMovies,
+  isFavedMoviesChanged,
+  isWatchlistMoviesChanged,
 } from '../../containers/MainPage/selector';
 
 import {
@@ -30,6 +32,8 @@ const mapStateToProps = (state) => ({
   showWatchlist: shouldDisplayWatchlist(state),
   getFavoriteMovies: getFavoritesMovies(state),
   getWatchlistMovies: getWatchlistMovies(state),
+  isFavedMoviesChanged: isFavedMoviesChanged(state),
+  isWatchlistMoviesChanged: isWatchlistMoviesChanged(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
