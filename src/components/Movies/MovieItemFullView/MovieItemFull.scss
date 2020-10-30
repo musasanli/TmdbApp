@@ -126,7 +126,6 @@ body {
       padding: 25px;
       height: 50%;
       text-align: left;
-
       .text {
         margin-top: 20px;
         color: #545454;
@@ -201,6 +200,8 @@ body {
 
   .MovieDesc {
     width: 100%;
+    margin-top: -30px;
+    min-height: 200px;
   }
 
   .InfoSection {
