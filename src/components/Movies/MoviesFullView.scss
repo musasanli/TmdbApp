@@ -3,3 +3,13 @@
   flex-wrap: wrap;
   overflow: auto;
 }
+
+.SadFace {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  img {
+    max-width: 100%;
+  }
+}
