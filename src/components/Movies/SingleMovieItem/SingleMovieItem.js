@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
+import { BsHeart, BsHeartFill } from 'react-icons/bs';
+import { RiMovieLine, RiMovieFill } from 'react-icons/ri';
 
 import { truncateTitle, popularityColor, refactorTrailerUrl } from '../utils';
 import { SINGLE_MAX_TITLE, SINGLE_MAX_DESC } from '../consts';
@@ -13,6 +15,10 @@ export const SingleMovieItem = ({
   selectedMovie,
   selectedMovieTrailer,
   closeSelectedMovie,
+  getIsFaved,
+  getIsInWatchlist,
+  setFavlist,
+  setWatchlist,
 }) => {
   const [watchTrailer, setWatchTrailer] = useState(false);
 
@@ -38,6 +44,16 @@ export const SingleMovieItem = ({
   const backgroundImage = selectedMovie.backdrop_path
     ? `${IMAGE_URL}${selectedMovie.backdrop_path}`
     : logo;
+  const isFaved = getIsFaved(selectedMovie.id);
+  const isInWatchlist = getIsInWatchlist(selectedMovie.id);
+
+  const setFavoriteMovies = (key) => {
+    setFavlist(selectedMovie.id, key);
+  };
+
+  const setWatchlistMovies = (key) => {
+    setWatchlist(selectedMovie.id, key);
+  };
 
   return (
     <div className="SingleMovieItemContainer">
@@ -110,13 +126,30 @@ export const SingleMovieItem = ({
               <div className="SingleMovieSocial">
                 <ul>
                   <li>
-                    <i className="material-icons">share</i>
+                    {isFaved ? (
+                      <BsHeartFill
+                        fill="red"
+                        onClick={() => setFavoriteMovies(!isFaved)}
+                      />
+                    ) : (
+                      <BsHeart
+                        fill="red"
+                        onClick={() => setFavoriteMovies(!isFaved)}
+                      />
+                    )}
                   </li>
                   <li>
-                    <i className="material-icons"></i>
-                  </li>
-                  <li>
-                    <i className="material-icons">chat_bubble</i>
+                    {isInWatchlist ? (
+                      <RiMovieFill
+                        fill="red"
+                        onClick={() => setWatchlistMovies(!isInWatchlist)}
+                      />
+                    ) : (
+                      <RiMovieLine
+                        fill="red"
+                        onClick={() => setWatchlistMovies(!isInWatchlist)}
+                      />
+                    )}
                   </li>
                 </ul>
               </div>
@@ -133,4 +166,8 @@ SingleMovieItem.propTypes = {
   selectedMovie: PropTypes.object,
   selectedMovieTrailer: PropTypes.string,
   closeSelectedMovie: PropTypes.func,
+  getIsFaved: PropTypes.func,
+  getIsInWatchlist: PropTypes.func,
+  setFavlist: PropTypes.func,
+  setWatchlist: PropTypes.func,
 };

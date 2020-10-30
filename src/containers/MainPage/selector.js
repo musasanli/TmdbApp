@@ -32,3 +32,9 @@ export const findRelatedGenres = (state, arr) => {
 
   return genres;
 };
+
+export const isFavedMoviesChanged = (state) =>
+  state.movieItem?.isFavlistChanged;
+
+export const isWatchlistMoviesChanged = (state) =>
+  state.movieItem?.isWatchlistChanged;

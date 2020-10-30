@@ -8,14 +8,14 @@
 html,
 body {
   margin: 0;
-  background: white;
+  background: #053a57;
   font-family: 'Montserrat', helvetica, arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
 }
 
 .SingleMovieItemContainer {
-  height: 100%;
+  height: 100vh;
 }
 
 .PopularityCircle {
@@ -204,22 +204,17 @@ body {
       }
     }
     .SingleMovieSocial {
-      height: 10%;
-      padding-left: 15px;
-      padding-bottom: 20px;
       ul {
         list-style: none;
         padding: 0;
         li {
           display: inline-block;
-          color: rgba(0, 0, 0, 0.3);
-          transition: color 0.3s;
-          transition-delay: 0.15s;
           margin: 0 10px;
+          cursor: pointer;
 
-          i {
-            font-size: 19px;
-            cursor: pointer;
+          svg {
+            height: 25px;
+            width: 25px;
           }
         }
       }
@@ -255,6 +250,18 @@ body {
   }
 }
 
+@media screen and (min-width: 769px) {
+  .SingleMovieCard {
+    .SingleInfoSection {
+      .SingleMovieSocial {
+        position: absolute;
+        bottom: 10px;
+        left: 150px;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   .SingleMovieCard {
     display: flex;
@@ -262,7 +269,7 @@ body {
     width: 95%;
     margin: 70px auto;
     min-height: 350px;
-    height: auto;
+    height: 500px;
   }
 
   .SingleMovieBlurBack {
@@ -277,10 +284,21 @@ body {
 
   .SingleMovieDesc {
     width: 100%;
+    margin-top: -70px;
   }
 
   .SingleInfoSection {
     background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
     display: inline-grid;
+  }
+
+  .SingleMovieCard {
+    .SingleInfoSection {
+      .SingleMovieSocial {
+        position: absolute;
+        bottom: 10px;
+        right: 0;
+      }
+    }
   }
 }

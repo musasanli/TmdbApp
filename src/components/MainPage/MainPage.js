@@ -22,6 +22,8 @@ export const MainPage = ({
   watchlistMovies,
   getFavoriteMovies,
   getWatchlistMovies,
+  isFavedMoviesChanged,
+  isWatchlistMoviesChanged,
 }) => {
   const isWithoutError = !isSearchLoading && isSearchSuccessfullyFetched;
   const shouldDisplayResult = isWithoutError && searchedMovies;
@@ -31,6 +33,16 @@ export const MainPage = ({
     favoriteMovies();
     watchlistMovies();
   }, [getGenres, favoriteMovies, watchlistMovies]);
+
+  useEffect(() => {
+    getGenres();
+    favoriteMovies();
+  }, [isFavedMoviesChanged]);
+
+  useEffect(() => {
+    getGenres();
+    watchlistMovies();
+  }, [isWatchlistMoviesChanged]);
 
   const display = () => {
     if (showSelectedMovie) {
@@ -82,4 +94,6 @@ MainPage.propTypes = {
   watchlistMovies: PropTypes.func,
   getFavoriteMovies: PropTypes.array,
   getWatchlistMovies: PropTypes.array,
+  isFavedMoviesChanged: PropTypes.bool,
+  isWatchlistMoviesChanged: PropTypes.bool,
 };
