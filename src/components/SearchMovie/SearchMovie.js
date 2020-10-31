@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { MIN_CHAR_QUERY, ENTER_KEY_CODE } from './consts';
 import './SearchMovie.scss';
 
 export const SearchMovie = ({ searchFilms, goHomePage }) => {
@@ -13,13 +14,13 @@ export const SearchMovie = ({ searchFilms, goHomePage }) => {
 
   const handleChange = (e) => {
     setQuery(e.target.value);
-    if (e.target.value.length < 1) {
+    if (e.target.value.length < MIN_CHAR_QUERY) {
       searchFilms('');
     }
   };
 
   const onKeyPressed = (e) => {
-    if (e.keyCode === 13) {
+    if (e.keyCode === ENTER_KEY_CODE) {
       searchFilms(query);
     }
   };
