@@ -56,13 +56,20 @@ export const SingleMovieItem = ({
   };
 
   return (
-    <div className="SingleMovieItemContainer">
+    <div
+      className="SingleMovieItemContainer"
+      data-testid="single_movie_item_container"
+    >
       <div className="SingleMovieCard">
         {watchTrailer ? (
-          <div className="SingleMovieTrailerContainer">
+          <div
+            className="SingleMovieTrailerContainer"
+            data-testid="single_movie_trailer_container"
+          >
             <button
               className="SingleMovieTrailerBack"
               onClick={handleBackFromTrailer}
+              data-testid="single_movie_handle_back"
             >
               <span>Close</span>
             </button>
@@ -75,17 +82,21 @@ export const SingleMovieItem = ({
             />
           </div>
         ) : (
-          <div>
+          <div data-testid="single_movie_item_card">
             <button
               className="SingleMovieTrailerBack"
               onClick={handleBackFromSingle}
+              data-testid="single_movie_trailer_back"
             >
               <span>Back</span>
             </button>
             <div className="SingleInfoSection">
               <div className="SingleMovieHeader">
                 <img className="SingleMoviePoster" src={poster} />
-                <div className="SingleMovieInfo">
+                <div
+                  className="SingleMovieInfo"
+                  data-testid="single_movie_info"
+                >
                   <h1>
                     {truncateTitle(
                       selectedMovie.original_title,
@@ -94,7 +105,7 @@ export const SingleMovieItem = ({
                   </h1>
                   <h4>{selectedMovie.release_date}</h4>
                   <h4>
-                    {selectedMovie.genres.map((item) => item.name).join(', ')}
+                    {selectedMovie?.genres?.map((item) => item.name).join(', ')}
                   </h4>
                   {selectedMovie.runtime && (
                     <h4>{`${selectedMovie.runtime} min`}</h4>
@@ -108,13 +119,17 @@ export const SingleMovieItem = ({
                     <button
                       className="TrailerButton"
                       onClick={handleWatchTrailer}
+                      data-testid="single_movie_trailer_button"
                     >
                       Watch trailer
                     </button>
                   )}
                 </div>
               </div>
-              <div className="SingleMovieDesc">
+              <div
+                className="SingleMovieDesc"
+                data-testid="single_movie_description"
+              >
                 <p className="text">{selectedMovie.tagline}</p>
                 <p className="text">
                   {truncateTitle(selectedMovie.overview, SINGLE_MAX_DESC)}
@@ -123,32 +138,43 @@ export const SingleMovieItem = ({
               <div className={popularityClass}>
                 {selectedMovie.vote_average}
               </div>
-              <div className="SingleMovieSocial">
+              <div
+                className="SingleMovieSocial"
+                data-testid="single_movie_social"
+              >
                 <ul>
                   <li>
                     {isFaved ? (
-                      <BsHeartFill
-                        fill="red"
-                        onClick={() => setFavoriteMovies(!isFaved)}
-                      />
+                      <div data-testid="filled_heart_single_icon">
+                        <BsHeartFill
+                          fill="red"
+                          onClick={() => setFavoriteMovies(!isFaved)}
+                        />
+                      </div>
                     ) : (
-                      <BsHeart
-                        fill="red"
-                        onClick={() => setFavoriteMovies(!isFaved)}
-                      />
+                      <div data-testid="empty_heart_single_icon">
+                        <BsHeart
+                          fill="red"
+                          onClick={() => setFavoriteMovies(!isFaved)}
+                        />
+                      </div>
                     )}
                   </li>
                   <li>
                     {isInWatchlist ? (
-                      <RiMovieFill
-                        fill="red"
-                        onClick={() => setWatchlistMovies(!isInWatchlist)}
-                      />
+                      <div data-testid="filled_watch_single_icon">
+                        <RiMovieFill
+                          fill="red"
+                          onClick={() => setWatchlistMovies(!isInWatchlist)}
+                        />
+                      </div>
                     ) : (
-                      <RiMovieLine
-                        fill="red"
-                        onClick={() => setWatchlistMovies(!isInWatchlist)}
-                      />
+                      <div data-testid="empty_watch_single_icon">
+                        <RiMovieLine
+                          fill="red"
+                          onClick={() => setWatchlistMovies(!isInWatchlist)}
+                        />
+                      </div>
                     )}
                   </li>
                 </ul>

@@ -11,6 +11,7 @@ const upcomingMoviesReducers = (state = initialState, action) => {
       return {
         ...state,
         isLoading: action.isLoading,
+        isSuccessfullyFetched: action.isSuccessfullyFetched,
       };
 
     case actionTypes.FETCH_UPCOMING_MOVIES_SUCCESFUL:

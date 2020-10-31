@@ -3,7 +3,7 @@ import { MainPageView } from './components/MainPage';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="App" data-testid="main_page">
       <MainPageView />
     </div>
   );

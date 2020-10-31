@@ -73,10 +73,14 @@ export const MainPage = ({
   };
 
   return (
-    <div className="MainPage">
-      <SideMenuView />
-      <SearcMovieView />
-      {isSearchLoading && <p>Spinner</p>}
+    <div className="MainPage" data-testid="main_page_view">
+      <div data-testid="side_menu">
+        <SideMenuView />
+      </div>
+      <div data-testid="search_movie">
+        <SearcMovieView />
+      </div>
+      {isSearchLoading && <p data-testid="main_page_spinner">Spinner</p>}
       {display()}
     </div>
   );

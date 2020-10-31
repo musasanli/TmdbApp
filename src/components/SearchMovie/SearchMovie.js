@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './SearchMovie.scss';
 
-export const SearchMovie = ({ searchFilms, getRandomMovie, goHomePage }) => {
+export const SearchMovie = ({ searchFilms, goHomePage }) => {
   const [query, setQuery] = useState('');
-
-  useEffect(() => {
-    getRandomMovie();
-  }, [getRandomMovie]);
 
   const handleClick = () => {
     searchFilms(query);
@@ -21,13 +17,18 @@ export const SearchMovie = ({ searchFilms, getRandomMovie, goHomePage }) => {
 
   return (
     <div className="SearchMovieContainer">
-      <div className="SearchMovie">
+      <div className="SearchMovie" data-testid="search_movie_container">
         <input
           className="TypeMovie"
+          data-testid="search_movie_input"
           placeholder={'Type Movie'}
           onChange={handleChange}
         />
-        <button className="Submit" onClick={handleClick}>
+        <button
+          className="Submit"
+          data-testid="search_movie_button"
+          onClick={handleClick}
+        >
           <span>Search </span>
         </button>
       </div>
@@ -37,6 +38,5 @@ export const SearchMovie = ({ searchFilms, getRandomMovie, goHomePage }) => {
 
 SearchMovie.propTypes = {
   searchFilms: PropTypes.func.isRequired,
-  getRandomMovie: PropTypes.func.isRequired,
   goHomePage: PropTypes.func,
 };

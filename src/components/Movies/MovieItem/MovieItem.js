@@ -24,7 +24,7 @@ export const MovieItem = ({
   )}`;
   const poster = data.poster_path ? `${IMAGE_URL}${data.poster_path}` : logo;
   const title = truncateTitle(data.original_title, MAX_POPULAR_TITLE);
-  const relatedGenres = displayGenres(genres(data.genre_ids));
+  const relatedGenres = displayGenres(genres(data?.genre_ids));
   const isFaved = getIsFaved(data.id);
   const isInWatchlist = getIsInWatchlist(data.id);
 
@@ -41,44 +41,58 @@ export const MovieItem = ({
   };
 
   return (
-    <div className="MovieItemContainer">
-      <div className="MovieCardPopular" id="bright">
+    <div className="MovieItemContainer" data-testid="movie_item_container">
+      <div className="MovieCardPopular">
         <div className="InfoSectionPopular">
-          <div className="MovieHeaderPopular" onClick={DetailedMovie}>
+          <div
+            className="MovieHeaderPopular"
+            onClick={DetailedMovie}
+            data-testid="movie_item_poster"
+          >
             <img className="MoviePosterPopular" src={poster} />
           </div>
-          <div className="MovieInfoPopular">
+          <div className="MovieInfoPopular" data-testid="movie_item_info">
             <h2>{title}</h2>
             <h4>{data.release_date}</h4>
             <h4>{relatedGenres}</h4>
           </div>
-          <div className={popularityClass}>{data.vote_average}</div>
-          <div className="MovieSocialPopular">
+          <div className={popularityClass} data-testid="movie_item_vote">
+            {data.vote_average}
+          </div>
+          <div className="MovieSocialPopular" data-testid="movie_item_social">
             <ul>
               <li>
                 {isFaved ? (
-                  <BsHeartFill
-                    fill="red"
-                    onClick={() => setFavoriteMovies(!isFaved)}
-                  />
+                  <div data-testid="filled_heart_icon">
+                    <BsHeartFill
+                      fill="red"
+                      onClick={() => setFavoriteMovies(!isFaved)}
+                    />
+                  </div>
                 ) : (
-                  <BsHeart
-                    fill="red"
-                    onClick={() => setFavoriteMovies(!isFaved)}
-                  />
+                  <div data-testid="empty_heart_icon">
+                    <BsHeart
+                      fill="red"
+                      onClick={() => setFavoriteMovies(!isFaved)}
+                    />
+                  </div>
                 )}
               </li>
               <li>
                 {isInWatchlist ? (
-                  <RiMovieFill
-                    fill="red"
-                    onClick={() => setWatchlistMovies(!isInWatchlist)}
-                  />
+                  <div data-testid="filled_watch_icon">
+                    <RiMovieFill
+                      fill="red"
+                      onClick={() => setWatchlistMovies(!isInWatchlist)}
+                    />
+                  </div>
                 ) : (
-                  <RiMovieLine
-                    fill="red"
-                    onClick={() => setWatchlistMovies(!isInWatchlist)}
-                  />
+                  <div data-testid="empty_watch_icon">
+                    <RiMovieLine
+                      fill="red"
+                      onClick={() => setWatchlistMovies(!isInWatchlist)}
+                    />
+                  </div>
                 )}
               </li>
             </ul>
