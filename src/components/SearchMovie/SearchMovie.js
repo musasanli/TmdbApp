@@ -13,6 +13,15 @@ export const SearchMovie = ({ searchFilms, goHomePage }) => {
 
   const handleChange = (e) => {
     setQuery(e.target.value);
+    if (e.target.value.length < 1) {
+      searchFilms('');
+    }
+  };
+
+  const onKeyPressed = (e) => {
+    if (e.keyCode === 13) {
+      searchFilms(query);
+    }
   };
 
   return (
@@ -23,6 +32,7 @@ export const SearchMovie = ({ searchFilms, goHomePage }) => {
           data-testid="search_movie_input"
           placeholder={'Type Movie'}
           onChange={handleChange}
+          onKeyDown={onKeyPressed}
         />
         <button
           className="Submit"
