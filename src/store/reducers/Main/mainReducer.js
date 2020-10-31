@@ -7,7 +7,7 @@ const initialState = {
   showWatchlist: false,
 };
 
-const searchReducer = (state = initialState, action) => {
+const mainReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_GENRES:
       return {
@@ -59,4 +59,4 @@ const searchReducer = (state = initialState, action) => {
   }
 };
 
-export default searchReducer;
+export default mainReducer;

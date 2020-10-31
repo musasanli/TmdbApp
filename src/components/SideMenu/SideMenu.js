@@ -33,13 +33,25 @@ export const SideMenu = ({ goHomePage, goFavPage, goWatchPage }) => {
       onOpen={handleOnOpen}
       onClose={handleOnClose}
     >
-      <a className="menu-item" onClick={handleHomeClick}>
+      <a
+        className="menu-item"
+        data-testid="side_menu_home"
+        onClick={handleHomeClick}
+      >
         Home
       </a>
-      <a className="menu-item" onClick={handleFavClick}>
+      <a
+        className="menu-item"
+        data-testid="side_menu_favorite"
+        onClick={handleFavClick}
+      >
         My Favorites
       </a>
-      <a className="menu-item" onClick={handleWatchClick}>
+      <a
+        className="menu-item"
+        data-testid="side_menu_watchlist"
+        onClick={handleWatchClick}
+      >
         My Watchlist
       </a>
     </Menu>

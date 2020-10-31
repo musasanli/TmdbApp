@@ -8,10 +8,19 @@ import './MoviesFullView.scss';
 
 export const MoviesFullView = ({ movies }) => {
   return (
-    <div className="MovieFullContainer">
-      {!movies.length && <SadFace />}
+    <div className="MovieFullContainer" data-testid="movie_full_container">
+      {!movies.length && (
+        <div className="SadFace" data-testid="sad_face">
+          <SadFace />
+        </div>
+      )}
       {movies.map((element, i) => (
-        <MovieItemFullView key={`movie-${i}`} data={element} />
+        <div key={`movie-${i}`}>
+          <MovieItemFullView
+            data={element}
+            data-testid="movie_item_full_view"
+          />
+        </div>
       ))}
     </div>
   );

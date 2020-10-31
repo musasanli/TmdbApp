@@ -16,10 +16,10 @@ export const UpcomingMovies = ({
 
   const display = () => {
     if (isUpcomingMoviesLoading) {
-      return <p>Spinner</p>;
+      return <p data-testid="upcoming_page_spinner">Spinner</p>;
     }
     return (
-      <div className="UpcomingMovies">
+      <div className="UpcomingMovies" data-testid="upcoming_movies">
         {upcomingMovies?.map((element, i) => (
           <MovieItemView key={`movie-${i}`} data={element} />
         ))}

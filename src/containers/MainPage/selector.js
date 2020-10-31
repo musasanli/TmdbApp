@@ -26,7 +26,7 @@ export const findRelatedGenres = (state, arr) => {
   const genres = [];
   arr.map((arrItem) => {
     genres.push(
-      state.main?.genresData?.genres.find((x) => x.id === arrItem).name,
+      state.main?.genresData?.genres.find((x) => x.id === arrItem)?.name,
     );
   });
 

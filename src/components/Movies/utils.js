@@ -15,7 +15,6 @@ export const truncateTitle = (title, maxLength) => {
 };
 
 export const popularityColor = (data) => {
-  //const score = parseInt(data);
   if (data < 4) {
     return 'low';
   } else if (data < 7) {
@@ -26,7 +25,7 @@ export const popularityColor = (data) => {
 };
 
 export const displayGenres = (arr) => {
-  return arr.slice(0, arr.length).join(',  ');
+  return arr?.slice(0, arr.length).join(', ');
 };
 
 export const refactorTrailerUrl = (key) => `${YOUTUBE_URL}${key}`;

@@ -16,10 +16,10 @@ export const PopularMovies = ({
 
   const display = () => {
     if (isPopularMoviesLoading) {
-      return <p>Spinner</p>;
+      return <p data-testid="popular_page_spinner">Spinner</p>;
     }
     return (
-      <div className="PopularMovies">
+      <div className="PopularMovies" data-testid="popular_movies">
         {popularMovies?.map((element, i) => (
           <MovieItemView key={`movie-${i}`} data={element} />
         ))}

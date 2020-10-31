@@ -2,14 +2,14 @@ import { fetchUpcomingMovies } from './calls';
 import { actionTypes } from './types';
 
 export const fetchUpcomingMoviesCall = () => (dispatch) => {
-  dispatch(popularMoviesInitial());
+  dispatch(upcomingMoviesInitial());
 
   fetchUpcomingMovies()
     .then((res) => dispatch(upcomingMovies(res)))
     .catch((error) => dispatch(upcomingMoviesFail(error)));
 };
 
-export const popularMoviesInitial = () => {
+export const upcomingMoviesInitial = () => {
   return {
     type: actionTypes.FETCH_UPCOMING_MOVIES_INITIAL,
     isLoading: true,
