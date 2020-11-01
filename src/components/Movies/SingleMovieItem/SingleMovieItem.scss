@@ -274,6 +274,10 @@
   .SingleMovieDesc {
     width: 100%;
     margin-top: -70px;
+    .text {
+      margin-top: 0;
+      font-size: 10px;
+    }
   }
 
   .SingleInfoSection {

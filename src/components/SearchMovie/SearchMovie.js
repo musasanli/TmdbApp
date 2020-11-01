@@ -4,10 +4,15 @@ import PropTypes from 'prop-types';
 import { MIN_CHAR_QUERY, ENTER_KEY_CODE } from './consts';
 import './SearchMovie.scss';
 
-export const SearchMovie = ({ searchFilms, goHomePage }) => {
+export const SearchMovie = ({
+  searchFilms,
+  goHomePage,
+  closeSelectedMovie,
+}) => {
   const [query, setQuery] = useState('');
 
   const handleClick = () => {
+    closeSelectedMovie();
     searchFilms(query);
     goHomePage();
   };
@@ -21,6 +26,7 @@ export const SearchMovie = ({ searchFilms, goHomePage }) => {
 
   const onKeyPressed = (e) => {
     if (e.keyCode === ENTER_KEY_CODE) {
+      closeSelectedMovie();
       searchFilms(query);
     }
   };
@@ -50,4 +56,5 @@ export const SearchMovie = ({ searchFilms, goHomePage }) => {
 SearchMovie.propTypes = {
   searchFilms: PropTypes.func.isRequired,
   goHomePage: PropTypes.func,
+  closeSelectedMovie: PropTypes.func,
 };
