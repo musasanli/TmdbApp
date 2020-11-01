@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { MovieItemFullView } from './MovieItemFullView/index';
-import { SadFace } from '../common/SadFace/SadFace';
+import { SadFace } from 'components/common/SadFace/SadFace';
 
 import './MoviesFullView.scss';
 

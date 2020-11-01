@@ -8,7 +8,7 @@ import {
   truncateTitle,
   popularityColor,
   displayGenres,
-} from '../utils';
+} from 'components/Movies/utils';
 import { MAX_TITLE } from 'components/Movies/consts';
 import { IMAGE_URL } from 'utils/consts';
 
