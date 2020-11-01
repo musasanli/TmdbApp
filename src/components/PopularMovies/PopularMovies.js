@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { MovieItemView } from 'components/Movies/MovieItem/index';
+import { Spinner } from 'components/common/Spinner/Spinner';
 
 import './PopularMovies.scss';
 
@@ -16,7 +17,11 @@ export const PopularMovies = ({
 
   const display = () => {
     if (isPopularMoviesLoading) {
-      return <p data-testid="popular_page_spinner">Spinner</p>;
+      return (
+        <div data-testid="popular_page_spinner">
+          <Spinner />
+        </div>
+      );
     }
     return (
       <div className="PopularMovies" data-testid="popular_movies">

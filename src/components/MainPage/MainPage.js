@@ -7,6 +7,7 @@ import { SearcMovieView } from 'components/SearchMovie';
 import { MoviesFullView } from 'components/Movies/MoviesFullView';
 import { SingleMovieItemView } from 'components/Movies/SingleMovieItem';
 import { SideMenuView } from 'components/SideMenu';
+import { Spinner } from 'components/common/Spinner/Spinner';
 
 import './MainPage.scss';
 
@@ -84,7 +85,11 @@ export const MainPage = ({
       <div data-testid="search_movie">
         <SearcMovieView />
       </div>
-      {isSearchLoading && <p data-testid="main_page_spinner">Spinner</p>}
+      {isSearchLoading && (
+        <div data-testid="main_page_spinner">
+          <Spinner />
+        </div>
+      )}
       {display()}
     </div>
   );

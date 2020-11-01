@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithProvider } from '../../utils/renderWithProvider';
+import { renderWithProvider } from 'utils/renderWithProvider';
 import { SadFace } from './SadFace';
 
 describe('Movies/SadFace', () => {
