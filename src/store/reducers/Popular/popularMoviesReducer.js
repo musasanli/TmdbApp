@@ -1,4 +1,4 @@
-import { actionTypes } from '../../../containers/PopularMovies/types';
+import { actionTypes } from 'containers/PopularMovies/types';
 
 const initialState = {
   isLoading: false,

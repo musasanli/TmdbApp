@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
-import { fetchUpcomingMoviesCall } from '../../containers/UpcomingMovies/action';
+import { fetchUpcomingMoviesCall } from 'containers/UpcomingMovies/action';
 import {
   getUpcomingMovies,
   getIsUpcomingMoviesLoading,
-} from '../../containers/UpcomingMovies/selector';
+} from 'containers/UpcomingMovies/selector';
 
 import { UpcomingMovies } from './UpcomingMovies';
 

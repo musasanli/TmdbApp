@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { MovieItemView } from '../Movies/MovieItem/index';
+import { MovieItemView } from 'components/Movies/MovieItem/index';
 
 import './UpcomingMovies.scss';
 

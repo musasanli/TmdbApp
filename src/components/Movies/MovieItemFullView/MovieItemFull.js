@@ -9,10 +9,10 @@ import {
   popularityColor,
   displayGenres,
 } from '../utils';
-import { MAX_TITLE } from '../consts';
-import { IMAGE_URL } from '../../../utils/consts';
+import { MAX_TITLE } from 'components/Movies/consts';
+import { IMAGE_URL } from 'utils/consts';
 
-import logo from '../../../assests/logo.svg';
+import logo from 'assests/logo.svg';
 import './MovieItemFull.scss';
 
 export const MovieItemFull = ({

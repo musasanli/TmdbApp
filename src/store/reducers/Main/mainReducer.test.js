@@ -1,5 +1,5 @@
 import mainReducer from './mainReducer';
-import { actionTypes } from '../../../containers/MainPage/types';
+import { actionTypes } from 'containers/MainPage/types';
 
 describe('Main reducer', () => {
   it('should return the initial state', () => {

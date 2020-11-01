@@ -12,13 +12,13 @@ import {
   getWatchlistMovies,
   isFavedMoviesChanged,
   isWatchlistMoviesChanged,
-} from '../../containers/MainPage/selector';
+} from 'containers/MainPage/selector';
 
 import {
   fetchGenres,
   fetchFavoriteMovies,
   fetchWatchlistMovies,
-} from '../../containers/MainPage/action';
+} from 'containers/MainPage/action';
 
 import { MainPage } from './MainPage';
 

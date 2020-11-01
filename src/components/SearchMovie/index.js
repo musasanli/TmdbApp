@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import { fetchQueriedFilmsCall } from '../../containers/SearchMovies/action';
-import { closeSelectedMovie } from '../../containers/MainPage/action';
-import { showHome } from '../../containers//MainPage/action';
+import { fetchQueriedFilmsCall } from 'containers/SearchMovies/action';
+import { closeSelectedMovie } from 'containers/MainPage/action';
+import { showHome } from 'containers//MainPage/action';
 
 import { SearchMovie } from './SearchMovie';
 

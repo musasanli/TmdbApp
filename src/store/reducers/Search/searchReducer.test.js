@@ -1,5 +1,5 @@
 import searchReducer from './searchReducer';
-import { actionTypes } from '../../../containers/SearchMovies/types';
+import { actionTypes } from 'containers/SearchMovies/types';
 
 describe('Search reducer', () => {
   it('should return the initial state', () => {

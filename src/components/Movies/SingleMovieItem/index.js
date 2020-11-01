@@ -3,17 +3,14 @@ import { connect } from 'react-redux';
 import {
   getSelectedMovie,
   getShowSelectedMovieTrailer,
-} from '../../../containers/MainPage/selector';
-import {
-  manageFavlist,
-  manageWatchlist,
-} from '../../../containers/MovieItem/action';
+} from 'containers/MainPage/selector';
+import { manageFavlist, manageWatchlist } from 'containers/MovieItem/action';
 
-import { closeSelectedMovie } from '../../../containers/MainPage/action';
+import { closeSelectedMovie } from 'containers/MainPage/action';
 import {
   checkIsFaved,
   checkIsInWatchlist,
-} from '../../../containers/MovieItem/selector';
+} from 'containers/MovieItem/selector';
 
 import { SingleMovieItem } from './SingleMovieItem';
 

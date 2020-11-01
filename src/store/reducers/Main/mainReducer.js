@@ -1,4 +1,4 @@
-import { actionTypes } from '../../../containers/MainPage/types';
+import { actionTypes } from 'containers/MainPage/types';
 
 const initialState = {
   showSelectedMovie: false,

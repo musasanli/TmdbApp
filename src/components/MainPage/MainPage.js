@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { PopularMoviesView } from '../PopularMovies';
-import { UpcomingMoviesView } from '../UpcomingMovies';
-import { SearcMovieView } from '../SearchMovie';
-import { MoviesFullView } from '../Movies/MoviesFullView';
-import { SingleMovieItemView } from '../Movies/SingleMovieItem';
-import { SideMenuView } from '../SideMenu';
+import { PopularMoviesView } from 'components/PopularMovies';
+import { UpcomingMoviesView } from 'components/UpcomingMovies';
+import { SearcMovieView } from 'components/SearchMovie';
+import { MoviesFullView } from 'components/Movies/MoviesFullView';
+import { SingleMovieItemView } from 'components/Movies/SingleMovieItem';
+import { SideMenuView } from 'components/SideMenu';
 
 import './MainPage.scss';
 

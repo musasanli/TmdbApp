@@ -11,10 +11,10 @@ import {
   displayGenresSingle,
   runTimeText,
 } from '../utils';
-import { SINGLE_MAX_TITLE, SINGLE_MAX_DESC } from '../consts';
-import { IMAGE_URL } from '../../../utils/consts';
+import { SINGLE_MAX_TITLE, SINGLE_MAX_DESC } from 'components/Movies/consts';
+import { IMAGE_URL } from 'utils/consts';
 
-import logo from '../../../assests/logo.svg';
+import logo from 'assests/logo.svg';
 import './SingleMovieItem.scss';
 
 export const SingleMovieItem = ({

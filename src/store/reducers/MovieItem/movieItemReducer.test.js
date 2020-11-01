@@ -1,5 +1,5 @@
 import movieItemReducer from './movieItemReducer';
-import { actionTypes } from '../../../containers/MovieItem/types';
+import { actionTypes } from 'containers/MovieItem/types';
 
 describe('Movie Item reducer', () => {
   it('should return the initial state', () => {

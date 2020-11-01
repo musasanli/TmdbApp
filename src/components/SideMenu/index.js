@@ -4,8 +4,8 @@ import {
   showHome,
   showFavorites,
   showWatchlist,
-} from '../../containers//MainPage/action';
-import { closeSelectedMovie } from '../../containers/MainPage/action';
+} from 'containers//MainPage/action';
+import { closeSelectedMovie } from 'containers/MainPage/action';
 
 import { SideMenu } from './SideMenu';
 

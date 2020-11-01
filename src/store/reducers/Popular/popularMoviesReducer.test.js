@@ -1,5 +1,5 @@
 import popularMoviesReducer from './popularMoviesReducer';
-import { actionTypes } from '../../../containers/PopularMovies/types';
+import { actionTypes } from 'containers/PopularMovies/types';
 
 describe('Popular Movies reducer', () => {
   it('should return the initial state', () => {

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
-import { fetchPopularMoviesCall } from '../../containers/PopularMovies/action';
+import { fetchPopularMoviesCall } from 'containers/PopularMovies/action';
 import {
   getPopularMovies,
   getIsPopularMoviesLoading,
-} from '../../containers/PopularMovies/selector';
+} from 'containers/PopularMovies/selector';
 
 import { PopularMovies } from './PopularMovies';
 

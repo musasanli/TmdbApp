@@ -1,16 +1,13 @@
 import { connect } from 'react-redux';
 
-import { fetchSelectedMovie } from '../../../containers/MainPage/action';
-import {
-  manageFavlist,
-  manageWatchlist,
-} from '../../../containers/MovieItem/action';
+import { fetchSelectedMovie } from 'containers/MainPage/action';
+import { manageFavlist, manageWatchlist } from 'containers/MovieItem/action';
 
-import { findRelatedGenres } from '../../../containers/MainPage/selector';
+import { findRelatedGenres } from 'containers/MainPage/selector';
 import {
   checkIsFaved,
   checkIsInWatchlist,
-} from '../../../containers/MovieItem/selector';
+} from 'containers/MovieItem/selector';
 
 import { MovieItem } from './MovieItem';
 

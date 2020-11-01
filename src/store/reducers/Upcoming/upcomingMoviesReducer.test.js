@@ -1,5 +1,5 @@
 import upcomingMoviesReducer from './upcomingMoviesReducer';
-import { actionTypes } from '../../../containers/UpcomingMovies/types';
+import { actionTypes } from 'containers/UpcomingMovies/types';
 
 describe('Upcoming Movies reducer', () => {
   it('should return the initial state', () => {

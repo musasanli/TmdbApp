@@ -1,5 +1,5 @@
-import { request } from '../../services/requestWrapper';
-import { API_URL, API_KEY, SESSION_ID } from '../../utils/consts';
+import { request } from 'services/requestWrapper';
+import { API_URL, API_KEY, SESSION_ID } from 'utils/consts';
 
 export const manageFavlistCall = (id, key) =>
   request(

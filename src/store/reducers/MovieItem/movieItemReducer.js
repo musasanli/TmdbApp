@@ -1,4 +1,4 @@
-import { actionTypes } from '../../../containers/MovieItem/types';
+import { actionTypes } from 'containers/MovieItem/types';
 
 const initialState = {
   isFavlistChanged: false,
