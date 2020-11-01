@@ -27,14 +27,14 @@ export const MovieItemFull = ({
   const popularityClass = `PopularityCircle__${popularityColor(
     data.vote_average,
   )}`;
-
   const poster = data.poster_path ? `${IMAGE_URL}${data.poster_path}` : logo;
   const backgroundImage = data.backdrop_path
     ? `${IMAGE_URL}${data.backdrop_path}`
     : logo;
+  const title = truncateTitle(data.original_title, MAX_TITLE);
+  const description = truncateDesription(data.overview, MAX_TITLE);
   const isFaved = getIsFaved(data.id);
   const isInWatchlist = getIsInWatchlist(data.id);
-
   const relatedGenres = displayGenres(genres(data.genre_ids));
 
   const DetailedMovie = () => {
@@ -59,14 +59,12 @@ export const MovieItemFull = ({
             data-testid="movie_item_full_info"
           >
             <img className="MoviePoster" src={poster} />
-            <h1>{truncateTitle(data.original_title, MAX_TITLE)}</h1>
+            <h1>{title}</h1>
             <h4>{data.release_date}</h4>
             <h4>{relatedGenres}</h4>
           </div>
           <div className="MovieDesc" data-testid="movie_item_full_desc">
-            <p className="text">
-              {truncateDesription(data.overview, MAX_TITLE)}
-            </p>
+            <p className="text">{description}</p>
           </div>
           <div className={popularityClass} data-testid="movie_item_full_vote">
             {data.vote_average}

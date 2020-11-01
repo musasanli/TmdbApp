@@ -11,11 +11,13 @@ export const SearchMovie = ({
 }) => {
   const [query, setQuery] = useState('');
 
-  const handleClick = () => {
+  const searchMovie = () => {
     closeSelectedMovie();
     searchFilms(query);
     goHomePage();
   };
+
+  const handleClick = () => searchMovie();
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -26,8 +28,7 @@ export const SearchMovie = ({
 
   const onKeyPressed = (e) => {
     if (e.keyCode === ENTER_KEY_CODE) {
-      closeSelectedMovie();
-      searchFilms(query);
+      searchMovie();
     }
   };
 

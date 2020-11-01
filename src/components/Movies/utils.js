@@ -24,8 +24,11 @@ export const popularityColor = (data) => {
   }
 };
 
-export const displayGenres = (arr) => {
-  return arr?.slice(0, arr.length).join(', ');
-};
+export const displayGenres = (arr) => arr?.slice(0, arr.length).join(', ');
+
+export const displayGenresSingle = (arr) =>
+  arr?.map((item) => item.name).join(', ');
+
+export const runTimeText = (min) => `${min} min`;
 
 export const refactorTrailerUrl = (key) => `${YOUTUBE_URL}${key}`;
