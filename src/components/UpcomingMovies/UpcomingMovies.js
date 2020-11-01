@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { MovieItemView } from 'components/Movies/MovieItem/index';
+import { Spinner } from 'components/common/Spinner/Spinner';
 
 import './UpcomingMovies.scss';
 
@@ -16,7 +17,11 @@ export const UpcomingMovies = ({
 
   const display = () => {
     if (isUpcomingMoviesLoading) {
-      return <p data-testid="upcoming_page_spinner">Spinner</p>;
+      return (
+        <div data-testid="upcoming_page_spinner">
+          <Spinner />
+        </div>
+      );
     }
     return (
       <div className="UpcomingMovies" data-testid="upcoming_movies">
