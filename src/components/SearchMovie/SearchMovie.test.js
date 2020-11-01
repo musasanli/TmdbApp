@@ -7,6 +7,7 @@ describe('SearchMovie', () => {
   const defaultProps = () => ({
     searchFilms: jest.fn(),
     goHomePage: jest.fn(),
+    closeSelectedMovie: jest.fn(),
   });
 
   const setupInput = () => {
@@ -46,7 +47,9 @@ describe('SearchMovie', () => {
 
     fireEvent.click(getByTestId('search_movie_button'));
 
+    expect(props.closeSelectedMovie).toHaveBeenCalled();
     expect(props.searchFilms).toHaveBeenCalled();
+    expect(props.goHomePage).toHaveBeenCalled();
   });
 
   it('renders search button text correctly', () => {

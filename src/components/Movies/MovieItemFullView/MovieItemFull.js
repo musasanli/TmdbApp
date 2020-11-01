@@ -59,7 +59,7 @@ export const MovieItemFull = ({
             data-testid="movie_item_full_info"
           >
             <img className="MoviePoster" src={poster} />
-            <h1>{truncateTitle(data.original_title)}</h1>
+            <h1>{truncateTitle(data.original_title, MAX_TITLE)}</h1>
             <h4>{data.release_date}</h4>
             <h4>{relatedGenres}</h4>
           </div>
