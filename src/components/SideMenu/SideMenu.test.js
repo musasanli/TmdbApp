@@ -8,6 +8,7 @@ describe('SideMenu', () => {
     goHomePage: jest.fn(),
     goFavPage: jest.fn(),
     goWatchPage: jest.fn(),
+    closeSelectedMovie: jest.fn(),
   });
 
   it('renders side menu home item correctly', () => {
@@ -37,6 +38,7 @@ describe('SideMenu', () => {
 
     fireEvent.click(getByTestId('side_menu_home'));
 
+    expect(props.closeSelectedMovie).toHaveBeenCalled();
     expect(props.goHomePage).toHaveBeenCalled();
   });
 
@@ -46,6 +48,7 @@ describe('SideMenu', () => {
 
     fireEvent.click(getByTestId('side_menu_favorite'));
 
+    expect(props.closeSelectedMovie).toHaveBeenCalled();
     expect(props.goFavPage).toHaveBeenCalled();
   });
 
@@ -55,6 +58,7 @@ describe('SideMenu', () => {
 
     fireEvent.click(getByTestId('side_menu_watchlist'));
 
+    expect(props.closeSelectedMovie).toHaveBeenCalled();
     expect(props.goWatchPage).toHaveBeenCalled();
   });
 });

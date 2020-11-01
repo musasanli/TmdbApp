@@ -1,3 +1,5 @@
+@import '../../../styles/colors';
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,9 +18,9 @@
     height: 70px;
     border-radius: 30%;
     font-size: 20px;
-    color: #fff;
+    color: $white;
     text-align: center;
-    background: #ca0b00;
+    background: $popularity-low;
     padding: 8px 0 0 8px;
   }
 
@@ -30,9 +32,9 @@
     height: 70px;
     border-radius: 30%;
     font-size: 20px;
-    color: #fff;
+    color: $white;
     text-align: center;
-    background: #f89806;
+    background: $popularity-middle;
     padding: 8px 0 0 8px;
   }
 
@@ -44,25 +46,17 @@
     height: 70px;
     border-radius: 30%;
     font-size: 20px;
-    color: #fff;
+    color: $white;
     text-align: center;
-    background: #4da516;
+    background: $popularity-high;
     padding: 8px 0 0 8px;
   }
-}
-
-.link {
-  display: block;
-  text-align: center;
-  color: #777;
-  text-decoration: none;
-  padding: 10px;
 }
 
 .TrailerButton {
   background: none !important;
   border: none;
-  color: #069;
+  color: $trailer-button-color;
   cursor: pointer;
   font-size: 16px;
   text-decoration: none;
@@ -88,11 +82,11 @@
 .SingleMovieTrailerBack {
   height: 50px;
   border-radius: 50px;
-  border: 10px solid #0281a9;
+  border: 10px solid $trailer-back-button-color;
   cursor: pointer;
   transition: all 0.5s;
   outline: none;
-  color: #0281a9;
+  color: $trailer-back-button-color;
   font-size: 23px;
   font-weight: bold;
   right: 20px;
@@ -110,7 +104,7 @@
 
 .SingleMovieTrailerBack span:after {
   content: '\27F5';
-  color: #0281a9;
+  color: $trailer-back-button-color;
   position: absolute;
   opacity: 0;
   top: -5px;
@@ -158,23 +152,11 @@
         float: left;
       }
       h4 {
-        color: #555;
+        color: $movie-info-popular;
         font-weight: 400;
         float: left;
       }
-      .minutes {
-        display: inline-block;
-        margin-top: 15px;
-        color: #555;
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-      }
-      .type {
-        display: inline-block;
-        color: #959595;
-        margin-left: 10px;
-      }
+
       .SingleMoviePoster {
         position: relative;
         float: left;
@@ -189,7 +171,7 @@
       text-align: left;
       .text {
         margin-top: 20px;
-        color: #545454;
+        color: $movie-desc-color;
       }
     }
     .SingleMovieSocial {
@@ -230,7 +212,11 @@
   }
 
   .SingleInfoSection {
-    background: linear-gradient(to right, #e5e6e6 50%, transparent 100%);
+    background: linear-gradient(
+      to right,
+      $info-section-back 50%,
+      transparent 100%
+    );
   }
 
   .SingleMovieBlurBack {
@@ -281,7 +267,11 @@
   }
 
   .SingleInfoSection {
-    background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
+    background: linear-gradient(
+      to top,
+      $info-section-back 50%,
+      transparent 100%
+    );
     display: inline-grid;
   }
 

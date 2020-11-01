@@ -1,6 +1,8 @@
+@import '../../styles/colors';
+
 .PopularMoviesContainer {
   margin-top: 50px;
-  color: #3e8e87;
+  color: $header-color;
 }
 
 .PopularMovies {

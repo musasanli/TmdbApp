@@ -4,18 +4,26 @@ import { slide as Menu } from 'react-burger-menu';
 
 import './SideMenu.scss';
 
-export const SideMenu = ({ goHomePage, goFavPage, goWatchPage }) => {
+export const SideMenu = ({
+  goHomePage,
+  goFavPage,
+  goWatchPage,
+  closeSelectedMovie,
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleHomeClick = () => {
+    closeSelectedMovie();
     goHomePage();
     setIsMenuOpen(false);
   };
   const handleFavClick = () => {
+    closeSelectedMovie();
     goFavPage();
     setIsMenuOpen(false);
   };
   const handleWatchClick = () => {
+    closeSelectedMovie();
     goWatchPage();
     setIsMenuOpen(false);
   };
@@ -62,4 +70,5 @@ SideMenu.propTypes = {
   goHomePage: PropTypes.func,
   goFavPage: PropTypes.func,
   goWatchPage: PropTypes.func,
+  closeSelectedMovie: PropTypes.func,
 };

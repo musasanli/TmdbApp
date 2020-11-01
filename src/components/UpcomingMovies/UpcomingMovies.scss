@@ -1,6 +1,8 @@
+@import '../../styles/colors';
+
 .UpcomingMoviesContainer {
   margin-top: 50px;
-  color: #3e8e87;
+  color: $header-color;
 }
 
 .UpcomingMovies {

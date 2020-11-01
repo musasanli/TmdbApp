@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
+@import '../../../styles/colors';
 
 * {
   box-sizing: border-box;
@@ -14,9 +15,9 @@
     height: 70px;
     border-radius: 30%;
     font-size: 20px;
-    color: #fff;
+    color: $white;
     text-align: center;
-    background: #ca0b00;
+    background: $popularity-low;
     padding: 8px 0 0 8px;
   }
 
@@ -28,9 +29,9 @@
     height: 70px;
     border-radius: 30%;
     font-size: 20px;
-    color: #fff;
+    color: $white;
     text-align: center;
-    background: #f89806;
+    background: $popularity-middle;
     padding: 8px 0 0 8px;
   }
 
@@ -42,9 +43,9 @@
     height: 70px;
     border-radius: 30%;
     font-size: 20px;
-    color: #fff;
+    color: $white;
     text-align: center;
-    background: #4da516;
+    background: $popularity-high;
     padding: 8px 0 0 8px;
   }
 }
@@ -63,7 +64,7 @@
     transition: all 0.4s;
   }
   .InfoSectionPopular {
-    background: #e5e6e6;
+    background: $info-section-back;
     position: relative;
     width: 100%;
     height: 100%;
@@ -89,7 +90,7 @@
         font-weight: 400;
       }
       h4 {
-        color: #555;
+        color: $movie-info-popular;
         font-weight: 400;
       }
     }
