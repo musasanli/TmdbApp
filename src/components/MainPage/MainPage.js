@@ -50,11 +50,15 @@ export const MainPage = ({
     }
 
     if (showFavorites) {
-      return <MoviesFullView movies={getFavoriteMovies} />;
+      return (
+        <MoviesFullView movies={getFavoriteMovies} header={'Favorite Movies'} />
+      );
     }
 
     if (showWatchlist) {
-      return <MoviesFullView movies={getWatchlistMovies} />;
+      return (
+        <MoviesFullView movies={getWatchlistMovies} header={'Watchlist'} />
+      );
     }
 
     return shouldDisplayResult ? fullReview() : mainPageFeatures();

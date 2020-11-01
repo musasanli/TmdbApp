@@ -22,6 +22,7 @@ export const SearchMovie = ({
   const handleChange = (e) => {
     setQuery(e.target.value);
     if (e.target.value.length < MIN_CHAR_QUERY) {
+      closeSelectedMovie();
       searchFilms('');
     }
   };

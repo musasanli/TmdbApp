@@ -1,3 +1,5 @@
+@import '../../styles/colors';
+
 .MovieFullContainer {
   display: flex;
   flex-wrap: wrap;
@@ -12,4 +14,8 @@
   img {
     max-width: 100%;
   }
+}
+
+.MovieFullContainerHeader {
+  color: $header-color;
 }

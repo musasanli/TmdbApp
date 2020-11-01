@@ -1,3 +1,5 @@
+@import '../../styles/colors';
+
 .SideMenu {
   margin-left: -150px;
 }
@@ -19,12 +21,12 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #ffffff;
+  background: $white;
 }
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #16d8c7;
+  background: $menu-bar-hover;
 }
 
 /* Position and sizing of clickable cross button */
@@ -35,7 +37,7 @@
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #bdc3c7;
+  background: $popularity-low;
 }
 
 /*
@@ -49,26 +51,26 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
+  background: $menu-background;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-  fill: #373a47;
+  fill: $menu-background;
 }
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: #b8b7ad;
+  color: $menu-item-list;
   padding: 0.8em;
 }
 
 /* Individual item */
 .bm-item {
   display: inline-block;
-  color: #d1d1d1;
+  color: $menu-items-color;
   margin-bottom: 10px;
   text-align: left;
   text-decoration: none;
@@ -84,5 +86,5 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .bm-item:hover {
-  color: #ffffff;
+  color: $white;
 }
