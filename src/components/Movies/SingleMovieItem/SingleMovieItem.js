@@ -4,7 +4,13 @@ import ReactPlayer from 'react-player';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import { RiMovieLine, RiMovieFill } from 'react-icons/ri';
 
-import { truncateTitle, popularityColor, refactorTrailerUrl } from '../utils';
+import {
+  truncateTitle,
+  popularityColor,
+  refactorTrailerUrl,
+  displayGenresSingle,
+  runTimeText,
+} from '../utils';
 import { SINGLE_MAX_TITLE, SINGLE_MAX_DESC } from '../consts';
 import { IMAGE_URL } from '../../../utils/consts';
 
@@ -37,7 +43,7 @@ export const SingleMovieItem = ({
   const popularityClass = `PopularityCircle__${popularityColor(
     selectedMovie.vote_average,
   )}`;
-
+  const title = truncateTitle(selectedMovie.original_title, SINGLE_MAX_TITLE);
   const poster = selectedMovie.poster_path
     ? `${IMAGE_URL}${selectedMovie.poster_path}`
     : logo;
@@ -46,6 +52,9 @@ export const SingleMovieItem = ({
     : logo;
   const isFaved = getIsFaved(selectedMovie.id);
   const isInWatchlist = getIsInWatchlist(selectedMovie.id);
+  const genres = displayGenresSingle(selectedMovie?.genres);
+  const runTime = runTimeText(selectedMovie.runtime);
+  const description = truncateTitle(selectedMovie.overview, SINGLE_MAX_DESC);
 
   const setFavoriteMovies = (key) => {
     setFavlist(selectedMovie.id, key);
@@ -97,19 +106,10 @@ export const SingleMovieItem = ({
                   className="SingleMovieInfo"
                   data-testid="single_movie_info"
                 >
-                  <h1>
-                    {truncateTitle(
-                      selectedMovie.original_title,
-                      SINGLE_MAX_TITLE,
-                    )}
-                  </h1>
+                  <h1>{title}</h1>
                   <h4>{selectedMovie.release_date}</h4>
-                  <h4>
-                    {selectedMovie?.genres?.map((item) => item.name).join(', ')}
-                  </h4>
-                  {selectedMovie.runtime && (
-                    <h4>{`${selectedMovie.runtime} min`}</h4>
-                  )}
+                  <h4>{genres}</h4>
+                  {selectedMovie.runtime && <h4>{runTime}</h4>}
                   {selectedMovie.homepage && (
                     <a className="TrailerButton" href={selectedMovie.homepage}>
                       Watch now
@@ -131,9 +131,7 @@ export const SingleMovieItem = ({
                 data-testid="single_movie_description"
               >
                 <p className="text">{selectedMovie.tagline}</p>
-                <p className="text">
-                  {truncateTitle(selectedMovie.overview, SINGLE_MAX_DESC)}
-                </p>
+                <p className="text">{description}</p>
               </div>
               <div className={popularityClass}>
                 {selectedMovie.vote_average}
