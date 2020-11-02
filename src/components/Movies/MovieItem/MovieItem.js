@@ -48,20 +48,18 @@ export const MovieItem = ({
     <div className="MovieItemContainer" data-testid="movie_item_container">
       <div className="MovieCardPopular">
         <div className="InfoSectionPopular">
-          <div
-            className="MovieHeaderPopular"
-            onClick={DetailedMovie}
-            data-testid="movie_item_poster"
-          >
-            <img className="MoviePosterPopular" src={poster} />
-          </div>
-          <div className="MovieInfoPopular" data-testid="movie_item_info">
-            <h2>{title}</h2>
-            <h4>{data.release_date}</h4>
-            <h4>{relatedGenres}</h4>
-          </div>
-          <div className={popularityClass} data-testid="movie_item_vote">
-            {data.vote_average}
+          <div onClick={DetailedMovie}>
+            <div className="MovieHeaderPopular" data-testid="movie_item_poster">
+              <img className="MoviePosterPopular" src={poster} />
+            </div>
+            <div className="MovieInfoPopular" data-testid="movie_item_info">
+              <h2>{title}</h2>
+              <h4>{data.release_date}</h4>
+              <h4>{relatedGenres}</h4>
+            </div>
+            <div className={popularityClass} data-testid="movie_item_vote">
+              {data.vote_average}
+            </div>
           </div>
           <div className="MovieSocialPopular" data-testid="movie_item_social">
             <ul>
