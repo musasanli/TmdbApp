@@ -254,7 +254,15 @@
 
   .SingleMovieHeader {
     width: 100%;
-    margin-top: 85px;
+    margin-top: 55px;
+  }
+
+  .SingleMovieInfo {
+    h4,
+    a,
+    button {
+      font-size: 9px;
+    }
   }
 
   .SingleMovieDesc {
